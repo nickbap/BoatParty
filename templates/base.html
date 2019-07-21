@@ -12,12 +12,12 @@
 
 <body>
     <nav>
-        <a href="#">About Us</a>
-        <a href="#">Schedule</a>
-        <a href="#">Location</a>
-        <a href="#">Registry</a>
-        <a href="#">Guestbook</a>
-        <a href="#">Contact/ RSVP</a>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('details') }}">Details</a>
+        <a href="{{ url_for('registry') }}">Registry</a>
+        <a href="{{ url_for('guest_book') }}">Guestbook</a>
+        <a href="{{ url_for('rsvp') }}">RSVP</a>
     </nav>
 
     {% block content %}{% endblock %}
