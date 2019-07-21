@@ -1,27 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "bootstrap/base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {% if title %}
-    <title>{{ title }}</title>
+{% block title %}
+{% if title %}Nick & Natalie - {{ title }} {% else %} Nick & Natalie {% endif %}
+{% endblock %}
+
+{% block navbar %}
+<nav>
+    <a href="{{ url_for('index') }}">Home</a>
+    <a href="{{ url_for('about') }}">About Us</a>
+    <a href="{{ url_for('details') }}">Details</a>
+    <a href="{{ url_for('registry') }}">Registry</a>
+    <a href="{{ url_for('guest_book') }}">Guestbook</a>
+    <a href="{{ url_for('rsvp') }}">RSVP</a>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-info" role="alert">{{ message }}</div>
+    {% endfor %}
     {% endif %}
-</head>
+    {% endwith %}
 
-<body>
-    <nav>
-        <a href="{{ url_for('index') }}">Home</a>
-        <a href="{{ url_for('about') }}">About Us</a>
-        <a href="{{ url_for('details') }}">Details</a>
-        <a href="{{ url_for('registry') }}">Registry</a>
-        <a href="{{ url_for('guest_book') }}">Guestbook</a>
-        <a href="{{ url_for('rsvp') }}">RSVP</a>
-    </nav>
-
-    {% block content %}{% endblock %}
-
-</body>
-
-</html>
+    {% block app_content %}{% endblock %}
+</div>
+{% endblock %}

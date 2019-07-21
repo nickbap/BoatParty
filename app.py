@@ -1,6 +1,9 @@
 from flask import Flask, render_template, url_for
+from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
+
+Bootstrap(app)
 
 
 @app.route('/')
@@ -38,6 +41,12 @@ def guest_book():
 def rsvp():
     title = 'RSVP'
     return render_template('rsvp.html', title=title)
+
+
+@app.route('/base')
+def base_test():
+    """Temporary route for checking the base template."""
+    return render_template('base.html')
 
 
 if __name__ == "__main__":
