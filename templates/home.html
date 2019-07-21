@@ -1,25 +1,5 @@
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
-<body>
-
-    <nav>
-        <a href="#">About Us</a>
-        <a href="#">Schedule</a>
-        <a href="#">Location</a>
-        <a href="#">Registry</a>
-        <a href="#">Guestbook</a>
-        <a href="#">Contact/ RSVP</a>
-    </nav>
-
-    <h1>Hello World Via HTML</h1>
-
-</body>
-
-</html>
+{% block content %}
+<h1>Hello World Via HTML</h1>
+{% endblock %}
