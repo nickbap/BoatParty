@@ -1,9 +1,22 @@
 from flask import Flask, render_template, url_for
 from flask_bootstrap import Bootstrap
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField
+from wtforms.validators import DataRequired
+from flask_pagedown import PageDown
+from flask_pagedown.fields import PageDownField
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'I_Solemnly_Swear_Im_Up_To_No_Good'
 
 Bootstrap(app)
+pagedown = PageDown(app)
+
+
+class GuestBook(FlaskForm):
+    name = StringField('Your Name', validators=[DataRequired()])
+    pagedown = PageDownField('Please leave us a note!\n Markdown supported!')
+    submit = SubmitField('Post')
 
 
 @app.route('/')
@@ -33,8 +46,9 @@ def registry():
 
 @app.route('/guest-book')
 def guest_book():
+    form = GuestBook()
     title = 'Guest Book'
-    return render_template('guest_book.html', title=title)
+    return render_template('guest_book.html', title=title, form=form)
 
 
 @app.route('/rsvp')
