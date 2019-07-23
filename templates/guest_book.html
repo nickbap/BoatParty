@@ -13,4 +13,14 @@
 <form method="POST">
     {{wtf.quick_form(form)}}
 </form>
+
+<div>
+    {% for post in posts %}
+    {{ post.posted_at }}
+    <p>{{ post.name }} says:</p>
+    {{ post.post_html | safe }}
+    {% endfor %}
+
+</div>
+
 {% endblock %}

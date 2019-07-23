@@ -1,3 +1,5 @@
 BoatParty.code-workspace
 .vscode/
 venv/
+__pycache__/
+.DS_Store
