@@ -1,39 +1,8 @@
-from flask import Flask, render_template, url_for, redirect
-from flask_bootstrap import Bootstrap
-from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
-from wtforms.validators import DataRequired
-from flask_pagedown import PageDown
-from flask_pagedown.fields import PageDownField
-from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
-from utils import convert_markdown_to_html
-
-app = Flask(__name__)
-
-app.config['SECRET_KEY'] = 'I_Solemnly_Swear_Im_Up_To_No_Good'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///boat_party.db'
-
-Bootstrap(app)
-pagedown = PageDown(app)
-db = SQLAlchemy(app)
-
-
-class GuestBookForm(FlaskForm):
-    name = StringField('Your Name', validators=[DataRequired()])
-    pagedown = PageDownField('Please leave us a note!\n Markdown supported!')
-    submit = SubmitField('Post')
-
-
-class GuestBookPost(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    posted_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    name = db.Column(db.String(80), unique=True, nullable=False)
-    post_md = db.Column(db.Text, unique=True, nullable=False)
-    post_html = db.Column(db.Text, unique=True, nullable=False)
-
-    def __repr__(self):
-        return '<GuestBookPosts {} {} {}>'.format(self.id, self.posted_at, self.name)
+from flask import render_template, url_for, redirect
+from boatparty import app, db
+from boatparty.forms import GuestBookForm
+from boatparty.models import GuestBookPost
+from boatparty.utils import convert_markdown_to_html
 
 
 @app.route('/')
@@ -97,7 +66,3 @@ def rsvp():
 def base_test():
     """Temporary route for checking the base template."""
     return render_template('base.html')
-
-
-if __name__ == "__main__":
-    app.run(debug=True)

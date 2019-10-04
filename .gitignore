@@ -3,3 +3,4 @@ BoatParty.code-workspace
 venv/
 __pycache__/
 .DS_Store
+notes.css
