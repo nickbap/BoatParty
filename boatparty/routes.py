@@ -1,8 +1,9 @@
 from flask import render_template, url_for, redirect
+from flask_mail import Message
 from boatparty import app, db
 from boatparty.forms import GuestBookForm
 from boatparty.models import GuestBookPost
-from boatparty.utils import convert_markdown_to_html
+from boatparty.utils import convert_markdown_to_html, send_new_post_email
 
 
 @app.route('/')
@@ -50,6 +51,8 @@ def guest_book():
 
         db.session.add(post)
         db.session.commit()
+
+        send_new_post_email(name, post_html)
 
         return redirect(url_for('guest_book'))
     return render_template('guest_book.html', title=title, form=form, posts=posts)
