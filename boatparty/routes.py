@@ -1,4 +1,4 @@
-from flask import render_template, url_for, redirect
+from flask import render_template, url_for, redirect, flash
 from flask_mail import Message
 from boatparty import app, db
 from boatparty.forms import GuestBookForm
@@ -54,6 +54,7 @@ def guest_book():
 
         send_new_post_email(name, post_html)
 
+        flash('Thanks for leaving us a note!')
         return redirect(url_for('guest_book'))
     return render_template('guest_book.html', title=title, form=form, posts=posts)
 
