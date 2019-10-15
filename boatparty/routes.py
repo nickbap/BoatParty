@@ -31,7 +31,7 @@ def details():
 @app.route('/registry')
 def registry():
     """Registry View"""
-    title = 'registry'
+    title = 'Registry'
     return render_template('registry.html', title=title)
 
 
