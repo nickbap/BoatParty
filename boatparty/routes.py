@@ -5,6 +5,8 @@ from boatparty.forms import GuestBookForm
 from boatparty.models import GuestBookPost
 from boatparty.utils import convert_markdown_to_html, send_new_post_email
 
+import os
+
 
 @app.route('/')
 @app.route('/home')
@@ -18,7 +20,10 @@ def index():
 def about():
     """About Us View"""
     title = 'About Us'
-    return render_template('about.html', title=title)
+
+    gallery_dir = os.path.join(app.root_path, 'static/img/gallery')
+    gallery = [x for x in sorted(os.listdir(gallery_dir))]
+    return render_template('about.html', title=title, gallery=gallery)
 
 
 @app.route('/details')
