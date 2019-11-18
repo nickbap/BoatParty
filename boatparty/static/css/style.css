@@ -1,3 +1,17 @@
+body, html {
+  height: 100%;
+}
+
+.home-bg {
+  background-image: url('/static/img/NickNatalie-10.jpg');
+
+  height: 100%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .photo-gallery {
     color:#313437;
     background-color:#fff;
@@ -10,5 +24,3 @@ padding-bottom:20px;
 .photo-gallery .item {
 padding-bottom:30px;
 }
-  
-  
