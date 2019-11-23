@@ -12,8 +12,8 @@
 
 <div>
     {% for post in posts %}
-    {{ post.posted_at }}
-    <p>{{ post.name }} says:</p>
+    
+    <p>{{ moment(post.posted_at).fromNow() }}, {{ post.name }} said:</p>
     {{ post.post_html | safe }}
     {% endfor %}
 </div>
@@ -21,4 +21,5 @@
 
 {% block extra_js %}
 {{ pagedown.include_pagedown() }}
+{{ moment.include_moment() }}
 {% endblock %}
