@@ -12,9 +12,11 @@
 
 <div>
     {% for post in posts %}
-    
-    <p>{{ moment(post.posted_at).fromNow() }}, {{ post.name }} said:</p>
+    <hr>
+    <p>Posted {{ moment(post.posted_at).fromNow() }} <br>
+        <i>{{ post.name }}</i> said:</p>
     {{ post.post_html | safe }}
+
     {% endfor %}
 </div>
 {% endblock %}
