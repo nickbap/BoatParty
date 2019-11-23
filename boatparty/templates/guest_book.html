@@ -1,8 +1,4 @@
 {% extends 'base.html' %}
-{% block head %}
-{{ super() }}
-{{ pagedown.include_pagedown() }}
-{% endblock %}
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
@@ -20,7 +16,9 @@
     <p>{{ post.name }} says:</p>
     {{ post.post_html | safe }}
     {% endfor %}
-
 </div>
+{% endblock %}
 
+{% block extra_js %}
+{{ pagedown.include_pagedown() }}
 {% endblock %}
