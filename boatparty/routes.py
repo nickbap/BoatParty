@@ -3,7 +3,7 @@ from flask_mail import Message
 from boatparty import app, db
 from boatparty.forms import GuestBookForm
 from boatparty.models import GuestBookPost
-from boatparty.utils import convert_markdown_to_html, send_new_post_email
+from boatparty.utils import convert_markdown_to_html, send_new_post_email, get_countdown_data
 
 import os
 
@@ -13,7 +13,9 @@ import os
 def index():
     """Home View"""
     title = 'Home'
-    return render_template('home.html', title=title)
+
+    data = get_countdown_data()
+    return render_template('home.html', title=title, **data)
 
 
 @app.route('/about')

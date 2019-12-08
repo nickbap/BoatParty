@@ -3,6 +3,10 @@
 {% block jumbotron %}
 <div class="jumbotron" style="margin-bottom: 0px;">
     <h1>Nick & Natalie</h1>
-    <p>A Countdown timer.</p>
+    <p>Are getting marred {{ moment(wedding_day).fromTime(now) }}!</p>
 </div>
+{% endblock %}
+
+{% block extra_js %}
+{{ moment.include_moment() }}
 {% endblock %}
