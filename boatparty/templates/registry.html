@@ -4,4 +4,25 @@
 <h1>Registry</h1>
 
 <p>This page will have our registry information.</p>
+
+<div class="card-deck">
+    <div class="card">
+        <div class="card-body">
+            <a href="https://www.crateandbarrel.com/gift-registry/" target="_blank"><img class="card-img"
+                    src="{{ url_for('static', filename='img/registry/crate-barrel-logo-small.png') }}"></a>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <a href="https://www.westelm.com/registry/find-registry.html" target="_blank"><img class="card-img"
+                    src="{{ url_for('static', filename='img/registry/west-elm-2-logo-small.png') }}"></a>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <a href="https://www.target.com/gift-registry/" target="_blank"><img class="card-img"
+                    src="{{ url_for('static', filename='img/registry/target-logo-small.png') }}"></a>
+        </div>
+    </div>
+</div>
 {% endblock %}
