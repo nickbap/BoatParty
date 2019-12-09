@@ -1,15 +1,16 @@
-from flask import render_template, url_for, redirect, flash
+from flask import render_template, url_for, redirect, flash, Blueprint, current_app
 from flask_mail import Message
-from boatparty import app, db
+from boatparty import db
 from boatparty.forms import GuestBookForm
 from boatparty.models import GuestBookPost
 from boatparty.utils import convert_markdown_to_html, send_new_post_email, get_countdown_data
 
 import os
 
+main = Blueprint('main', __name__)
 
-@app.route('/')
-@app.route('/home')
+@main.route('/')
+@main.route('/home')
 def index():
     """Home View"""
     title = 'Home'
@@ -18,31 +19,31 @@ def index():
     return render_template('home.html', title=title, **data)
 
 
-@app.route('/about')
+@main.route('/about')
 def about():
     """About Us View"""
     title = 'About Us'
 
-    gallery_dir = os.path.join(app.root_path, 'static/img/gallery')
+    gallery_dir = os.path.join(current_app.root_path, 'static/img/gallery')
     gallery = [x for x in sorted(os.listdir(gallery_dir))]
     return render_template('about.html', title=title, gallery=gallery)
 
 
-@app.route('/details')
+@main.route('/details')
 def details():
     """Details View"""
     title = 'Details'
     return render_template('details.html', title=title)
 
 
-@app.route('/registry')
+@main.route('/registry')
 def registry():
     """Registry View"""
     title = 'Registry'
     return render_template('registry.html', title=title)
 
 
-@app.route('/guest-book', methods=['GET', 'POST'])
+@main.route('/guest-book', methods=['GET', 'POST'])
 def guest_book():
     """Guest Book View"""
     form = GuestBookForm()
@@ -62,18 +63,18 @@ def guest_book():
         send_new_post_email(name, post_html)
 
         flash('Thanks for leaving us a note!')
-        return redirect(url_for('guest_book'))
+        return redirect(url_for('main.guest_book'))
     return render_template('guest_book.html', title=title, form=form, posts=posts)
 
 
-@app.route('/rsvp')
+@main.route('/rsvp')
 def rsvp():
     """RSVP View"""
     title = 'RSVP'
     return render_template('rsvp.html', title=title)
 
 
-@app.route('/base')
+@main.route('/base')
 def base_test():
     """Temporary route for checking the base template."""
     return render_template('base.html')

@@ -3,8 +3,8 @@ import markdown2
 
 from datetime import datetime
 from flask_mail import Message
-from boatparty import app, mail
-from flask import render_template
+from boatparty import mail
+from flask import render_template, current_app
 
 
 def convert_markdown_to_html(markdown_str):
@@ -15,8 +15,8 @@ def convert_markdown_to_html(markdown_str):
 def send_new_post_email(name, post):
     """Sends email notification when a Guest Book Post is made"""
     msg = Message(subject='New Guest Book Post from {}'.format(name),
-                  sender=app.config['MAIL_USERNAME'],
-                  recipients=[app.config['SITE_ADMIN']])
+                  sender=current_app.config['MAIL_USERNAME'],
+                  recipients=[current_app.config['SITE_ADMIN']])
     msg.html = render_template('email_notification.html', name=name, post=post)
 
     mail.send(msg)
