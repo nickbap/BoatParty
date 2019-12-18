@@ -19,14 +19,14 @@ def index():
     return render_template('home.html', title=title, **data)
 
 
-@main.route('/about')
-def about():
-    """About Us View"""
-    title = 'About Us'
+@main.route('/photos')
+def photos():
+    """Photos View"""
+    title = 'Photos'
 
     gallery_dir = os.path.join(current_app.root_path, 'static/img/gallery')
     gallery = [x for x in sorted(os.listdir(gallery_dir))]
-    return render_template('about.html', title=title, gallery=gallery)
+    return render_template('photos.html', title=title, gallery=gallery)
 
 
 @main.route('/the-big-day')
