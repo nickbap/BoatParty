@@ -29,11 +29,11 @@ def about():
     return render_template('about.html', title=title, gallery=gallery)
 
 
-@main.route('/details')
-def details():
-    """Details View"""
-    title = 'Details'
-    return render_template('details.html', title=title)
+@main.route('/the-big-day')
+def the_big_day():
+    """The Big Day View"""
+    title = 'The Big Day'
+    return render_template('the-big-day.html', title=title)
 
 
 @main.route('/registry')
