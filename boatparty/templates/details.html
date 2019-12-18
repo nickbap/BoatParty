@@ -1,9 +1,40 @@
 {% extends 'base.html' %}
 
 {% block app_content %}
-<h1>Details</h1>
 
-<p>This page should have details for “the big day” such as the venue, time, any notes on transportation or where to
-    stay. Ideally, I’ll embed a sweet Google Map with the exact location of the venue. We’ll probably also have some fun
-    things to do in this area.</p>
+<h1>Details</h1>
+<p>Here's what to expect on our wedding weekend. We can't wait to celebrate with you!</p>
+<div class="row align-items-center mt-5">
+    <div class="col-sm-6 text-center">
+        <h4>Ceremony</h4>
+        <p>Saturday, August 1, 2020</p>
+        <p>4:30pm</p>
+    </div>
+    <div class="col-sm-6 text-center">
+        <img src="{{ url_for('static', filename='icons/floral.png') }}" alt="">
+        <p>Marin Art & Garden Center</p>
+        <address>30 Sir Francis Drake Blvd., Ross, CA 94957</address>
+        <p>The Ceremony should last about 30 minutes. Cocktail Hour to follow. Please note that the Ceremony takes place
+            on Grass so be careful with your shoes.</p>
+        <a class="btn btn-info" target="_blank"
+            href="https://www.google.com/maps/place/Marin+Art+%26+Garden+Center/@37.9627604,-122.5578252,16z/data=!4m5!3m4!1s0x808597495de32a3f:0x67d1228447e3c382!8m2!3d37.9634413!4d-122.5556122"
+            role="button">Map</a>
+    </div>
+</div>
+<div class="row align-items-center mt-5">
+    <div class="col-sm-6 text-center">
+        <h4>Reception</h4>
+        <p>Saturday, August 1, 2020</p>
+        <p>6:00pm to 10:00pm</p>
+    </div>
+    <div class="col-sm-6 text-center">
+        <img src="{{ url_for('static', filename='icons/place-setting.png') }}" alt="">
+        <p>Marin Art & Garden Center</p>
+        <address>30 Sir Francis Drake Blvd., Ross, CA 94957</address>
+        <p>The Reception will take place outside. It can be a bit chilly so considering bringing a light jacket. The
+            night will consistent of dinner, drinks, and dancing. What else can you ask for with the people we love?!
+        </p>
+    </div>
+</div>
+
 {% endblock %}
