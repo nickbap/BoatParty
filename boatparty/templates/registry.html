@@ -5,24 +5,33 @@
 
 <p>This page will have our registry information.</p>
 
-<div class="card-deck">
-    <div class="card">
-        <div class="card-body">
-            <a href="https://www.crateandbarrel.com/gift-registry/" target="_blank"><img class="card-img"
-                    src="{{ url_for('static', filename='img/registry/crate-barrel-logo-small.png') }}"></a>
-        </div>
+<div class="row align-items-center">
+    <div class="col-md-6 text-center">
+        <a href="https://www.crateandbarrel.com/gift-registry/" target="_blank">
+            <img src="{{ url_for('static', filename='img/registry/crate-barrel-logo-small.png') }}"
+                alt="Crate and Barrel Logo" class="img-fluid">
+        </a>
     </div>
-    <div class="card">
-        <div class="card-body">
-            <a href="https://www.westelm.com/registry/find-registry.html" target="_blank"><img class="card-img"
-                    src="{{ url_for('static', filename='img/registry/west-elm-2-logo-small.png') }}"></a>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-body">
-            <a href="https://www.target.com/gift-registry/" target="_blank"><img class="card-img"
-                    src="{{ url_for('static', filename='img/registry/target-logo-small.png') }}"></a>
-        </div>
+    <div class="col-md-6 text-center">
+        <a href="https://www.potterybarn.com/registry/find-registry.html" target="_blank">
+            <img src="{{ url_for('static', filename='img/registry/pottery-barn-logo-small.png') }}"
+                alt="Pottery Barn Logo" class="img-fluid mb-3">
+        </a>
     </div>
 </div>
+<div class="row align-items-center">
+    <div class="col-md-6 text-center">
+        <a href="https://www.target.com/gift-registry/" target="_blank">
+            <img src="{{ url_for('static', filename='img/registry/target-logo-small.png') }}" alt="Target Logo"
+                class="img-fluid">
+        </a>
+    </div>
+    <div class="col-md-6 text-center">
+        <a href="https://www.williams-sonoma.com/registry/" target="_blank">
+            <img src="{{ url_for('static', filename='img/registry/williams-sonoma-logo-small.png') }}"
+                alt="William Sonoma Logo" class="img-fluid py-3">
+        </a>
+    </div>
+</div>
+
 {% endblock %}
