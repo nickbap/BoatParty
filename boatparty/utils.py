@@ -17,7 +17,7 @@ def send_new_post_email(name, post):
     msg = Message(subject='New Guest Book Post from {}'.format(name),
                   sender=current_app.config['MAIL_USERNAME'],
                   recipients=[current_app.config['SITE_ADMIN']])
-    msg.html = render_template('email_notification.html', name=name, post=post)
+    msg.html = render_template('email-notification.html', name=name, post=post)
 
     mail.send(msg)
 

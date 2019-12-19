@@ -64,7 +64,7 @@ def guest_book():
 
         flash('Thanks for leaving us a note!')
         return redirect(url_for('main.guest_book'))
-    return render_template('guest_book.html', title=title, form=form, posts=posts)
+    return render_template('guest-book.html', title=title, form=form, posts=posts)
 
 
 @main.route('/rsvp')
