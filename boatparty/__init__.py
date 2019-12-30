@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 from flask_pagedown import PageDown
 from flask_mail import Mail
 from flask_moment import Moment
@@ -7,6 +8,7 @@ from config import Config
 
 
 db = SQLAlchemy()
+migrate = Migrate()
 pagedown = PageDown()
 mail = Mail()
 moment = Moment()
@@ -17,6 +19,7 @@ def create_app(config=Config):
     app.config.from_object(config)
 
     db.init_app(app)
+    migrate.init_app(app, db)
     pagedown.init_app(app)
     mail.init_app(app)
     moment.init_app(app)
