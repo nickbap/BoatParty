@@ -5,3 +5,4 @@ __pycache__/
 .DS_Store
 notes.css
 registry_img_originals/
+.env
