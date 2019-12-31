@@ -46,34 +46,50 @@ class ClientTestCase(unittest.TestCase):
     def test_index_page(self):
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
+        self.assertTrue(
+            '<h1>Nick & Natalie</h1>' in response.get_data(as_text=True))
 
     def test_home_page(self):
         response = self.client.get('/home')
         self.assertEqual(response.status_code, 200)
+        self.assertTrue(
+            '<h1>Nick & Natalie</h1>' in response.get_data(as_text=True))
 
     def test_photos_page(self):
         response = self.client.get('/photos')
         self.assertEqual(response.status_code, 200)
+        self.assertTrue(
+            '<h1>Engagement Photos</h1>' in response.get_data(as_text=True))
 
     def test_the_big_day_page(self):
         response = self.client.get('/the-big-day')
         self.assertEqual(response.status_code, 200)
+        self.assertTrue(
+            '<h1>The Big Day</h1>' in response.get_data(as_text=True))
 
     def test_guest_book_page(self):
         response = self.client.get('/guest-book')
         self.assertEqual(response.status_code, 200)
+        self.assertTrue(
+            '<h1>Guest Book</h1>' in response.get_data(as_text=True))
 
     def test_rsvp_page(self):
         response = self.client.get('/rsvp')
         self.assertEqual(response.status_code, 200)
+        self.assertTrue(
+            '<h1>RSVP</h1>' in response.get_data(as_text=True))
 
     def test_where_to_stay_page(self):
         response = self.client.get('/where-to-stay')
         self.assertEqual(response.status_code, 200)
+        self.assertTrue(
+            '<h1>Where to Stay</h1>' in response.get_data(as_text=True))
 
     def test_faq_page(self):
         response = self.client.get('/faq')
         self.assertEqual(response.status_code, 200)
+        self.assertTrue(
+            '<h1>Frequently Asked Questions</h1>' in response.get_data(as_text=True))
 
 
 if __name__ == '__main__':
