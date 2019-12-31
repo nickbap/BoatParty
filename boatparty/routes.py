@@ -9,6 +9,7 @@ import os
 
 main = Blueprint('main', __name__)
 
+
 @main.route('/')
 @main.route('/home')
 def index():
@@ -72,6 +73,13 @@ def rsvp():
     """RSVP View"""
     title = 'RSVP'
     return render_template('rsvp.html', title=title)
+
+
+@main.route('/where-to-stay')
+def where_to_stay():
+    """Where to Stay View"""
+    title = 'Where to Stay'
+    return render_template('where-to-stay.html', title=title)
 
 
 @main.route('/base')

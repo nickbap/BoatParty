@@ -66,6 +66,10 @@ class ClientTestCase(unittest.TestCase):
     def test_rsvp_page(self):
         response = self.client.get('/rsvp')
         self.assertEqual(response.status_code, 200)
+    
+    def test_where_to_stay_page(self):
+        response = self.client.get('/where-to-stay')
+        self.assertEqual(response.status_code, 200)
 
 
 if __name__ == '__main__':
