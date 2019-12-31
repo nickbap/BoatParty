@@ -82,6 +82,13 @@ def where_to_stay():
     return render_template('where-to-stay.html', title=title)
 
 
+@main.route('/faq')
+def faq():
+    """FAQ View"""
+    title = 'Frequently Asked Questions'
+    return render_template('faq.html', title=title)
+
+
 @main.route('/base')
 def base_test():
     """Temporary route for checking the base template."""
