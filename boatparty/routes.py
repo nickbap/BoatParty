@@ -3,7 +3,7 @@ from flask_mail import Message
 from boatparty import db
 from boatparty.forms import GuestBookForm
 from boatparty.models import GuestBookPost
-from boatparty.utils import convert_markdown_to_html, send_new_post_email, get_countdown_data
+from boatparty.utils import convert_markdown_to_html, send_new_post_email, get_countdown_data, get_gallery_photos
 
 import os
 
@@ -25,8 +25,7 @@ def photos():
     """Photos View"""
     title = 'Photos'
 
-    gallery_dir = os.path.join(current_app.root_path, 'static/img/gallery')
-    gallery = [x for x in sorted(os.listdir(gallery_dir))]
+    gallery = get_gallery_photos()
     return render_template('photos.html', title=title, gallery=gallery)
 
 

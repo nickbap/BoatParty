@@ -30,3 +30,9 @@ def get_countdown_data():
         'now': now,
         'wedding_day': wedding_day
     }
+
+
+def get_gallery_photos():
+    """Get file names for photos in static/img/gallery"""
+    gallery_dir = os.path.join(current_app.root_path, 'static/img/gallery')
+    return [g for g in sorted(os.listdir(gallery_dir))]
