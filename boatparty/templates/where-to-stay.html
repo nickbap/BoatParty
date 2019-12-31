@@ -1,53 +1,47 @@
 {% extends 'base.html' %}
 
-{% block extra_css%}
-<script src="https://kit.fontawesome.com/d8c817cde7.js" crossorigin="anonymous"></script>
-{% endblock %}
-
 {% block app_content %}
-
-<h1>Where to Stay</h1>
-<p>Here's some info on where you might want to stay!</p>
+<div class="text-center pt-3">
+    <h1>Where to Stay</h1>
+    <p>Here's some info on where you might want to stay!</p>
+</div>
 <div class="row mt-5">
     <div class="col-sm-6 text-center">
         <h4 class="mb-3">SFO</h4>
-        <i class="fas fa-plane-departure fa-3x"></i>
+        <img src="{{ url_for('static', filename='icons/airplane-icon.png')}}" alt="">
         <p class="py-2">About 32 miles away from the <a target="_blank"
                 href="https://www.google.com/maps/dir/San+Francisco+International+Airport,+San+Francisco,+CA+94128/Marin+Art+%26+Garden+Center,+30+Sir+Francis+Drake+Blvd,+Ross,+CA+94957/@37.7867222,-122.564927,11z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x808f778c55555555:0xa4f25c571acded3f!2m2!1d-122.3789554!2d37.6213129!1m5!1m1!1s0x808597495de32a3f:0x67d1228447e3c382!2m2!1d-122.5556122!2d37.9634413!3e0">venue</a>.
         </p>
         <h4 class="mb-3">Airbnb</h4>
-        <i class="fas fa-home fa-3x"></i>
+        <img src="{{ url_for('static', filename='icons/airbnb-logo-small.png')}}" alt="">
         <p class="py-2">Check out <a target="_blank" href="https://www.airbnb.com/s/Ross--CA/homes">Airbnb</a> for some
             great places to stay in Marin, Larkspur, Ross, Fairfax, and San
             Rafael!</p>
         <h4 class="mb-3">How to Get Around</h4>
-        <i class="fas fa-car-side fa-3x"></i>
+        <img src="{{ url_for('static', filename='icons/car-icon.png')}}" alt="">
         <ul class="list-unstyled py-2">
             <li>Lyft</li>
             <li>Uber</li>
-        </ul>
-        <i class="fas fa-ship fa-3x"></i>
-        <ul class="list-unstyled py-2">
             <li><a target="_blank" href="https://www.goldengate.org/ferry/riding-the-ferry/">Ferry</a></li>
         </ul>
     </div>
     <div class="col-sm-6 text-center">
-        <div>
+        <div class="mb-3">
             <h4 class="mb-3">Hotels</h4>
-            <i class="fas fa-hotel fa-3x"></i>
+            <img src="{{ url_for('static', filename='icons/hotel-icon.png')}}" alt="">
             <h6 class="mt-2">Courtyard by Marriot Larkspur</h6>
-            <address>2500 Larkspur Landing Cir, Larkspur, CA 94939</address>
+            <address class="mb-1">2500 Larkspur Landing Cir, Larkspur, CA 94939</address>
             <a href="tel: (415) 925-1800">(415) 925-1800</a>
             <p>About 3 miles from the <a target="_blank"
                     href="https://www.google.com/maps/dir/Courtyard+by+Marriott+San+Francisco+Larkspur+Landing%2FMarin+County,+Larkspur+Landing+Circle,+Larkspur,+CA/Marin+Art+%26+Garden+Center,+30+Sir+Francis+Drake+Blvd,+Ross,+CA+94957/@37.9534475,-122.5496615,14z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x80859a446b1ff159:0x4b1e1337242e2397!2m2!1d-122.5079325!2d37.9486979!1m5!1m1!1s0x808597495de32a3f:0x67d1228447e3c382!2m2!1d-122.5556122!2d37.9634413!3e0">venue</a>.
-                Please reach out to us if you do not see a room avaiable. We can look into adding more rooms to the
+                Please reach out to us if you do not see a room available. We can look into adding more rooms to the
                 block!
             </p>
             <a class="btn btn-info" href="#">Room Block</a>
         </div>
         <div class="py-3">
             <h6>Best Western Corte Madera Inn</h6>
-            <address>56 Madera Blvd, Corte Madera, CA 94925</address>
+            <address class="mb-1">56 Madera Blvd, Corte Madera, CA 94925</address>
             <a href="tel:(415) 924-1502">(415) 924-1502</a>
             <p>About 4 miles from the <a target="_blank"
                     href="https://www.google.com/maps/dir/Best+Western+Corte+Madera+Inn,+Madera+Boulevard,+Corte+Madera,+CA/Marin+Art+%26+Garden+Center,+30+Sir+Francis+Drake+Blvd,+Ross,+CA+94957/@37.9467063,-122.5530345,14z/data=!4m14!4m13!1m5!1m1!1s0x80859a8af10a07a5:0x8bc81928c71fec82!2m2!1d-122.5168864!2d37.9302256!1m5!1m1!1s0x808597495de32a3f:0x67d1228447e3c382!2m2!1d-122.5556122!2d37.9634413!3e0">venue</a>.
@@ -56,7 +50,7 @@
         </div>
         <div class="py-3">
             <h6>Embassy Suites by Hilton San Rafael Marin County</h6>
-            <address>101 McInnis Pkwy, San Rafael, CA 94903</address>
+            <address class="mb-1">101 McInnis Pkwy, San Rafael, CA 94903</address>
             <a href="tel:(415) 499-9222">(415) 499-9222</a>
             <p>About 9 miles from the <a target="_blank"
                     href="https://www.google.com/maps/dir/Embassy+Suites+by+Hilton+San+Rafael+Marin+County,+McInnis+Parkway,+San+Rafael,+CA/Marin+Art+%26+Garden+Center,+30+Sir+Francis+Drake+Blvd,+Ross,+CA+94957/@37.9762815,-122.5674789,13z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x8085982b3faf2c31:0x3315ad67bc2d0ed1!2m2!1d-122.5324177!2d38.0047276!1m5!1m1!1s0x808597495de32a3f:0x67d1228447e3c382!2m2!1d-122.5556122!2d37.9634413!3e0">venue</a>.
