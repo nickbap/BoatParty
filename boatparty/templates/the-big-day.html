@@ -2,15 +2,17 @@
 
 {% block app_content %}
 
-<h1>The Big Day</h1>
-<p>Here's what to expect on The Big Day. We can't wait to celebrate with you!</p>
+<div class="text-center pt-3">
+    <h1>The Big Day</h1>
+    <p>Here's what to expect on The Big Day. We can't wait to celebrate with you!</p>
+</div>
 <div class="row align-items-center mt-5">
     <div class="col-sm-6 text-center">
         <h4>Ceremony</h4>
         <p>Saturday, August 1, 2020</p>
         <p>4:30pm</p>
     </div>
-    <div class="col-sm-6 text-center">
+    <div class="col-sm-6 text-center border-left">
         <img src="{{ url_for('static', filename='icons/floral.png') }}" alt="">
         <p>Marin Art & Garden Center</p>
         <address>30 Sir Francis Drake Blvd., Ross, CA 94957</address>
@@ -21,13 +23,13 @@
             role="button">Map</a>
     </div>
 </div>
-<div class="row align-items-center mt-5">
+<div class="row align-items-center py-5">
     <div class="col-sm-6 text-center">
         <h4>Reception</h4>
         <p>Saturday, August 1, 2020</p>
         <p>6:00pm to 10:00pm</p>
     </div>
-    <div class="col-sm-6 text-center">
+    <div class="col-sm-6 text-center border-left">
         <img src="{{ url_for('static', filename='icons/place-setting.png') }}" alt="">
         <p>Marin Art & Garden Center</p>
         <address>30 Sir Francis Drake Blvd., Ross, CA 94957</address>
