@@ -58,8 +58,7 @@ class ClientTestCase(unittest.TestCase):
     def test_photos_page(self):
         response = self.client.get('/photos')
         self.assertEqual(response.status_code, 200)
-        self.assertTrue(
-            '<h1>Engagement Photos</h1>' in response.get_data(as_text=True))
+        self.assertTrue('photo-gallery' in response.get_data(as_text=True))
         # check that get_gallery_photos is working
         self.assertTrue(
             'NickNatalie-01.jpg' in response.get_data(as_text=True))

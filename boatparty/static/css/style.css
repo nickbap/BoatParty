@@ -22,5 +22,6 @@ padding-bottom:20px;
 }
   
 .photo-gallery .item {
-padding-bottom:30px;
+  padding-top: 30px;
+  padding-bottom:30px;
 }
