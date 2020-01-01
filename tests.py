@@ -76,12 +76,6 @@ class ClientTestCase(unittest.TestCase):
         self.assertTrue(
             '<h1>Guest Book</h1>' in response.get_data(as_text=True))
 
-    def test_rsvp_page(self):
-        response = self.client.get('/rsvp')
-        self.assertEqual(response.status_code, 200)
-        self.assertTrue(
-            '<h1>RSVP</h1>' in response.get_data(as_text=True))
-
     def test_where_to_stay_page(self):
         response = self.client.get('/where-to-stay')
         self.assertEqual(response.status_code, 200)
