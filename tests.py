@@ -47,13 +47,13 @@ class ClientTestCase(unittest.TestCase):
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
         self.assertTrue(
-            '<h1>Nick & Natalie</h1>' in response.get_data(as_text=True))
+            '<h1 class="text-white">Nick & Natalie</h1>' in response.get_data(as_text=True))
 
     def test_home_page(self):
         response = self.client.get('/home')
         self.assertEqual(response.status_code, 200)
         self.assertTrue(
-            '<h1>Nick & Natalie</h1>' in response.get_data(as_text=True))
+            '<h1 class="text-white">Nick & Natalie</h1>' in response.get_data(as_text=True))
 
     def test_photos_page(self):
         response = self.client.get('/photos')

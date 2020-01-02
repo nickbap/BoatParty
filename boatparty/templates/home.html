@@ -1,9 +1,57 @@
 {% extends 'base.html' %}
 
-{% block jumbotron %}
-<div class="jumbotron" style="margin-bottom: 0px;">
-    <h1>Nick & Natalie</h1>
-    <p>Are getting married {{ moment(wedding_day).fromTime(now) }}!</p>
+{% block home_content %}
+
+<div id="background-image">
+    <div class="container-fluid d-flex align-items-center justify-content-center h-100">
+        <div class="row justify-content-center text-center w-100">
+            <div class="col-md-10">
+                <h1 class="text-white">Nick & Natalie</h1>
+                <p class="text-white font-weight-bold">Are getting married {{ moment(wedding_day).fromTime(now) }}!
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="container-fluid pt-5 pb-3">
+    <div class="row d-flex justify-content-center">
+        <div class="col-10 text-center">
+            <img src="{{ url_for('static', filename='icons/wedding-cake.png' )}}" alt="">
+        </div>
+        <div class="col-lg-6 col-md-8 col-sm-8 text-center">
+            <h2>The Big Day</h2>
+            <p>August 1st, 2020</p>
+            <p>Ross, California</p>
+        </div>
+    </div>
+</div>
+<div class="container-fluid py-3">
+    <div class="row d-flex justify-content-center">
+        <div class="col-10 text-center">
+            <img src="{{ url_for('static', filename='icons/his-her-cocktails.png' )}}" alt="">
+        </div>
+        <div class="col-lg-6 col-md-8 col-sm-8 py-3">
+            <h2 class="text-center">How We Met</h2>
+            <p class="text-left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non ipsam porro voluptatum
+                perferendis unde
+                quaerat impedit sint tempore perspiciatis voluptates ipsum architecto reprehenderit exercitationem
+                recusandae, nam iste cupiditate. Est, maxime!</p>
+        </div>
+    </div>
+</div>
+<div class="container-fluid py-3">
+    <div class="row d-flex justify-content-center">
+        <div class="col-10 text-center">
+            <img src="{{ url_for('static', filename='icons/bride-ring.png' )}}" alt="">
+        </div>
+        <div class="col-lg-6 col-md-8 col-sm-8 py-3">
+            <h2 class="text-center">The Proposal</h2>
+            <p class="text-left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non ipsam porro voluptatum
+                perferendis unde
+                quaerat impedit sint tempore perspiciatis voluptates ipsum architecto reprehenderit exercitationem
+                recusandae, nam iste cupiditate. Est, maxime!</p>
+        </div>
+    </div>
 </div>
 {% endblock %}
 

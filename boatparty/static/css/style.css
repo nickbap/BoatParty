@@ -1,15 +1,10 @@
-body, html {
-  height: 100%;
-}
-
-.home-bg {
-  background-image: url('/static/img/NickNatalie-10.jpg');
-
-  height: 100%;
-
-  background-position: center;
-  background-repeat: no-repeat;
+#background-image {
+  background: url('/static/img/NickNatalie-10.jpg') center;
+  width: 100vw;
+  height: 100vh; 
   background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
 }
 
 .photo-gallery {
