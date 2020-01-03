@@ -12,12 +12,19 @@ def convert_markdown_to_html(markdown_str):
     return markdown2.markdown(markdown_str)
 
 
-def send_new_post_email(name, post):
-    """Sends email notification when a Guest Book Post is made"""
-    msg = Message(subject='New Guest Book Post from {}'.format(name),
+def send_email_notication(name, message, notification_type):
+    """Sends email notification when a Guest Book Post or Question is made"""
+    if notification_type not in {'guest book post', 'question'}:
+        raise ValueError('Invalid notification type.')
+
+    subject = 'New {notification_type} from {name}'.format(
+        notification_type=notification_type.title(), name=name.title())
+
+    msg = Message(subject=subject,
                   sender=current_app.config['MAIL_USERNAME'],
                   recipients=[current_app.config['SITE_ADMIN']])
-    msg.html = render_template('email-notification.html', name=name, post=post)
+    msg.html = render_template(
+        'email-notification.html', name=name.title(), notification_type=notification_type.title(), message=message)
 
     mail.send(msg)
 

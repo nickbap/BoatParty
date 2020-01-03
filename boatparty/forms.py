@@ -15,3 +15,9 @@ class GuestBookForm(FlaskForm):
         if name:
             raise ValidationError(
                 "Looks like you've left us a note already! Let's save some space for others!")
+
+
+class FAQForm(FlaskForm):
+    name = StringField('Your Name', validators=[DataRequired()])
+    question = StringField('Your Question', validators=[DataRequired()])
+    send = SubmitField('Send')
