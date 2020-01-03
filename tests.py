@@ -75,6 +75,17 @@ class ClientTestCase(unittest.TestCase):
         self.assertTrue(
             '<h1>Guest Book</h1>' in response.get_data(as_text=True))
 
+    def test_guest_book_post(self):
+        name = 'Test Poster'
+        md = '# Markdown Header'
+        html = convert_markdown_to_html(md)
+        data = {'name': name,
+                'pagedown': md}
+        response = self.client.post(
+            '/guest-book', data=data, follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(html in response.get_data(as_text=True))
+
     def test_where_to_stay_page(self):
         response = self.client.get('/where-to-stay')
         self.assertEqual(response.status_code, 200)
