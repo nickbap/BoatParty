@@ -49,7 +49,7 @@ def guest_book():
     form = GuestBookForm()
     title = 'Guest Book'
 
-    posts = GuestBookPost.query.all()
+    posts = GuestBookPost.query.order_by(GuestBookPost.posted_at.desc()).all()
     if form.validate_on_submit():
         name = form.name.data
         post_md = form.pagedown.data
@@ -85,7 +85,7 @@ def faq():
         message = form.question.data
 
         send_email_notication(name, message, 'question')
-        
+
         flash("Thanks for the note! We'll take a look and send you an update as soon as we can!")
         return redirect(url_for('main.faq'))
     return render_template('faq.html', title=title, form=form)
