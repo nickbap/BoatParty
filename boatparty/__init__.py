@@ -26,4 +26,8 @@ def create_app(config=Config):
 
     from boatparty.routes import main
     app.register_blueprint(main)
+
+    from boatparty.errors import error
+    app.register_blueprint(error)
+
     return app

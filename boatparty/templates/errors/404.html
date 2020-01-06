@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block app_content %}
+
+<div class="container-fluid">
+    <div class="row d-flex justify-content-center">
+        <h1 class="py-3">Hmmm, the page you're looking for cannot be found!</h1>
+        <div class="col-10 text-center">
+            <a href="{{ url_for('main.index') }}"><img class="img-fluid pb-3"
+                    src="{{ url_for('static', filename='img/errors/404.jpg') }}" alt=""></a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
