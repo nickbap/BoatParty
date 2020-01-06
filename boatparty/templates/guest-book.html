@@ -1,12 +1,11 @@
 {% extends 'base.html' %}
 
 {% block app_content %}
-<h1>Guest Book</h1>
-
-<p>Feel free to leave us a note! If you want to get fancy, you can use <a target="_blank"
-        href="https://www.markdownguide.org/cheat-sheet/">Markdown</a> in the form below.</p>
-
-
+<div class="pt-3">
+    <h1 class="hello">Guest Book</h1>
+    <p>Feel free to leave us a note! If you want to get fancy, you can use <a target="_blank"
+            href="https://www.markdownguide.org/cheat-sheet/">Markdown</a> in the form below.</p>
+</div>
 <form method="POST" action="{{ url_for('main.guest_book')}}">
     {{ form.hidden_tag() }}
     <fieldset class="form-group">

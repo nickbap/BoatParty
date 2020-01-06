@@ -1,27 +1,73 @@
+@font-face {
+  font-family: 'Hello';
+  src: url('/static/fonts/Hello/Hello.ttf');
+}
+
+@font-face {
+  font-family: 'Hello';
+  src: url('/static/fonts/Hello/Hello.ttf');
+}
+
+@font-face {
+  font-family: 'OpenSansLight';
+  src: url('/static/fonts/Open_Sans/OpenSans-Light.ttf');
+}
+
+@font-face {
+  font-family: 'OpenSansSemiBold';
+  src: url('/static/fonts/Open_Sans/OpenSans-SemiBold.ttf');
+}
+
+h1.hello {
+  font-family: Hello, cursive;
+  font-size: 72px;
+}
+
+h1.home {
+  text-shadow: 2px 2px 4px #000000
+}
+
+h2.hello {
+  font-family: Hello, cursive;
+  font-size: 40px;
+}
+
+h4 {
+  font-family: OpenSansSemiBold;
+}
+
+h4.home-tag {
+  text-shadow: 1px 1px 2px #000000
+}
+
+p, a, address, label {
+  font-family: OpenSans-Light;
+}
+
 #background-image {
   background: url('/static/img/NickNatalie-10.jpg') center;
   width: 100vw;
-  height: 100vh; 
+  height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
 }
 
 .photo-gallery {
-    color:#313437;
-    background-color:#fff;
-  }
+  color: #313437;
+  background-color: #fff;
+}
 
 .photo-gallery .photos {
-padding-bottom:20px;
-}
-  
-.photo-gallery .item {
-  padding-top: 30px;
-  padding-bottom:30px;
+  padding-bottom: 20px;
 }
 
-.guest-book > p img {
+.photo-gallery .item {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.guest-book>p img {
   max-height: 100%;
   max-width: 100%;
 }
