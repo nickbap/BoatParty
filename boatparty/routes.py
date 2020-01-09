@@ -1,11 +1,13 @@
-from flask import render_template, url_for, redirect, flash, Blueprint, current_app
+from flask import render_template, url_for, redirect, flash, Blueprint
 from flask_mail import Message
 from boatparty import db
 from boatparty.forms import GuestBookForm, FAQForm
 from boatparty.models import GuestBookPost
-from boatparty.utils import convert_markdown_to_html, send_email_notification, get_countdown_data, get_gallery_photos
+from boatparty.utils import (convert_markdown_to_html,
+                             send_email_notification,
+                             get_countdown_data,
+                             get_gallery_photos)
 
-import os
 
 main = Blueprint('main', __name__)
 

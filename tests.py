@@ -1,4 +1,5 @@
 import unittest
+
 from boatparty import create_app, db
 from boatparty.models import GuestBookPost
 from boatparty.utils import convert_markdown_to_html

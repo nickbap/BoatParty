@@ -2,9 +2,9 @@ import os
 import markdown2
 
 from datetime import datetime
+from flask import render_template, current_app
 from flask_mail import Message
 from boatparty import mail
-from flask import render_template, current_app
 
 
 def convert_markdown_to_html(markdown_str):

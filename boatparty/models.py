@@ -1,6 +1,6 @@
-from boatparty import db
-from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from flask_sqlalchemy import SQLAlchemy
+from boatparty import db
 
 
 class GuestBookPost(db.Model):
