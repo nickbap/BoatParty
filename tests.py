@@ -1,8 +1,8 @@
 import unittest
 
-from boatparty import create_app, db
+from boatparty import create_app, db, mail
 from boatparty.models import GuestBookPost
-from boatparty.utils import convert_markdown_to_html
+from boatparty.utils import convert_markdown_to_html, send_email_notification
 from config import TestingConfig
 
 
@@ -98,6 +98,19 @@ class ClientTestCase(unittest.TestCase):
         response = self.client.get('/foo')
         self.assertEqual(response.status_code, 404)
         self.assertTrue('cannot be found!' in response.get_data(as_text=True))
+
+    def test_post_email_notifications(self):
+        with mail.record_messages() as outbox:
+            send_email_notification(
+                'Test Sender', 'Test Message', 'guest book post')
+        assert len(outbox) == 1
+        assert outbox[0].subject == 'New Guest Book Post from Test Sender'
+
+    def test_question_email_notifications(self):
+        with mail.record_messages() as outbox:
+            send_email_notification('Test Sender', 'Test Question', 'question')
+        assert len(outbox) == 1
+        assert outbox[0].subject == 'New Question from Test Sender'
 
 
 if __name__ == '__main__':
