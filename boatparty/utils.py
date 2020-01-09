@@ -12,7 +12,7 @@ def convert_markdown_to_html(markdown_str):
     return markdown2.markdown(markdown_str)
 
 
-def send_email_notication(name, message, notification_type):
+def send_email_notification(name, message, notification_type):
     """Sends email notification when a Guest Book Post or Question is made"""
     if notification_type not in {'guest book post', 'question'}:
         raise ValueError('Invalid notification type.')

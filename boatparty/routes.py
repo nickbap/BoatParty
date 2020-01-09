@@ -3,7 +3,7 @@ from flask_mail import Message
 from boatparty import db
 from boatparty.forms import GuestBookForm, FAQForm
 from boatparty.models import GuestBookPost
-from boatparty.utils import convert_markdown_to_html, send_email_notication, get_countdown_data, get_gallery_photos
+from boatparty.utils import convert_markdown_to_html, send_email_notification, get_countdown_data, get_gallery_photos
 
 import os
 
@@ -60,7 +60,7 @@ def guest_book():
         db.session.add(post)
         db.session.commit()
 
-        send_email_notication(name, post_html, 'guest book post')
+        send_email_notification(name, post_html, 'guest book post')
 
         flash('Thanks for leaving us a note!')
         return redirect(url_for('main.guest_book'))
@@ -84,7 +84,7 @@ def faq():
         name = form.name.data
         message = form.question.data
 
-        send_email_notication(name, message, 'question')
+        send_email_notification(name, message, 'question')
 
         flash("Thanks for the note! We'll take a look and send you an update as soon as we can!")
         return redirect(url_for('main.faq'))
