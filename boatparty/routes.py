@@ -93,6 +93,13 @@ def faq():
     return render_template('faq.html', title=title, form=form)
 
 
+@main.route('/admin')
+def admin():
+    """Site Admin Suite Login"""
+    title = 'Site Admin Login'
+    return render_template('admin.html', title=title)
+
+
 @main.route('/base')
 def base_test():
     """Temporary route for checking the base template."""

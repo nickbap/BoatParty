@@ -94,6 +94,10 @@ class ClientTestCase(unittest.TestCase):
         self.assertTrue(
             'Frequently Asked Questions' in response.get_data(as_text=True))
 
+    def test_admin_page(self):
+        response = self.client.get('/admin')
+        self.assertEqual(response.status_code, 200)
+
     def test_404_handler(self):
         response = self.client.get('/foo')
         self.assertEqual(response.status_code, 404)
