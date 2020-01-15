@@ -1,7 +1,7 @@
 from flask import render_template, url_for, redirect, flash, Blueprint
 from flask_mail import Message
 from boatparty import db
-from boatparty.forms import GuestBookForm, FAQForm
+from boatparty.forms import GuestBookForm, FAQForm, AdminForm
 from boatparty.models import GuestBookPost
 from boatparty.utils import (convert_markdown_to_html,
                              send_email_notification,
@@ -93,11 +93,15 @@ def faq():
     return render_template('faq.html', title=title, form=form)
 
 
-@main.route('/admin')
+@main.route('/admin', methods=['GET', 'POST'])
 def admin():
     """Site Admin Suite Login"""
     title = 'Site Admin Login'
-    return render_template('admin.html', title=title)
+    form = AdminForm()
+    if form.validate_on_submit():
+        print(form.email.data)
+        print(form.password.data)
+    return render_template('admin.html', title=title, form=form)
 
 
 @main.route('/base')

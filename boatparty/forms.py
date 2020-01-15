@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
-from wtforms.validators import DataRequired, ValidationError
+from wtforms import StringField, SubmitField, PasswordField
+from wtforms.validators import DataRequired, ValidationError, Email
 from flask_pagedown.fields import PageDownField
 from boatparty.models import GuestBookPost
 
@@ -21,3 +21,9 @@ class FAQForm(FlaskForm):
     name = StringField('Your Name', validators=[DataRequired()])
     question = StringField('Your Question', validators=[DataRequired()])
     send = SubmitField('Send')
+
+
+class AdminForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Passord', validators=[DataRequired()])
+    login = SubmitField('Login')
