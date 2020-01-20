@@ -121,7 +121,7 @@ def base_test():
 def logout():
     """A route used to log out of admin mode"""
     logout_user()
-    flash('Successfuully logged out of Admin Mode!')
+    flash('Successfully logged out of Admin Mode!')
     return redirect(url_for('main.guest_book'))
 
 
