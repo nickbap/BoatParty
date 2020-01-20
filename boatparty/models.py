@@ -1,6 +1,12 @@
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
-from boatparty import db
+from flask_login import UserMixin
+from boatparty import db, login_manager
+
+
+@login_manager.user_loader
+def load_user(id):
+    return User.query.get(int(id))
 
 
 class GuestBookPost(db.Model):
@@ -15,7 +21,7 @@ class GuestBookPost(db.Model):
         return '<GuestBookPosts {} {} {}>'.format(self.id, self.posted_at, self.name)
 
 
-class Users(db.Model):
+class User(UserMixin, db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(30), unique=True, nullable=False)

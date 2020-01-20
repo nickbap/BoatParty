@@ -1,8 +1,10 @@
 from flask import render_template, url_for, redirect, flash, Blueprint
 from flask_mail import Message
+from flask_login import login_user, current_user, login_required, logout_user
+from werkzeug.security import generate_password_hash, check_password_hash
 from boatparty import db
 from boatparty.forms import GuestBookForm, FAQForm, AdminForm
-from boatparty.models import GuestBookPost
+from boatparty.models import GuestBookPost, User
 from boatparty.utils import (convert_markdown_to_html,
                              send_email_notification,
                              get_countdown_data,
@@ -99,8 +101,13 @@ def admin():
     title = 'Site Admin Login'
     form = AdminForm()
     if form.validate_on_submit():
-        print(form.email.data)
-        print(form.password.data)
+        user = User.query.filter_by(email=form.email.data).first()
+        if user and check_password_hash(user.password, form.password.data):
+            login_user(user)
+            flash('Successfully logged into Admin Mode!')
+            return redirect(url_for('main.guest_book'))
+        else:
+            flash('Something went wrong with your login!')
     return render_template('admin.html', title=title, form=form)
 
 
@@ -108,3 +115,16 @@ def admin():
 def base_test():
     """Temporary route for checking the base template."""
     return render_template('base.html')
+
+
+@main.route('/logout')
+def logout():
+    """A route used to log out of admin mode"""
+    logout_user()
+    return redirect(url_for('main.guest_book'))
+
+
+@main.route('/hidden')
+@login_required
+def hidden():
+    return 'You are logged in if you can see this.'

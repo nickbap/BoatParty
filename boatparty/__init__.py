@@ -4,6 +4,7 @@ from flask_migrate import Migrate
 from flask_pagedown import PageDown
 from flask_mail import Mail
 from flask_moment import Moment
+from flask_login import LoginManager
 from config import Config
 
 
@@ -12,6 +13,7 @@ migrate = Migrate()
 pagedown = PageDown()
 mail = Mail()
 moment = Moment()
+login_manager = LoginManager()
 
 
 def create_app(config=Config):
@@ -23,6 +25,7 @@ def create_app(config=Config):
     pagedown.init_app(app)
     mail.init_app(app)
     moment.init_app(app)
+    login_manager.init_app(app)
 
     from boatparty.routes import main
     app.register_blueprint(main)
