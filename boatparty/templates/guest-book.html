@@ -61,6 +61,12 @@
     <p>Posted {{ moment(post.posted_at).fromNow() }} <br>
         <i>{{ post.name }}</i> said:</p>
     {{ post.post_html | safe }}
+    
+    {% if current_user.is_authenticated %}
+    <form action="{{ url_for('main.delete', post_id=post.id) }}" method="POST">
+        <input class="btn btn-danger" type="submit" value="Delete">
+    </form>
+    {% endif %}
 
     {% endfor %}
 </div>

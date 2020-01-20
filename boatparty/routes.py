@@ -129,3 +129,15 @@ def logout():
 @login_required
 def hidden():
     return 'You are logged in if you can see this.'
+
+@main.route('/delete/<int:post_id>',  methods=['POST'])
+@login_required
+def delete(post_id):
+    post = GuestBookPost.query.filter_by(id=int(post_id)).first()
+    
+    db.session.delete(post)
+    db.session.commit()
+    
+    flash('Successfully deleted the Post!')
+    return redirect(url_for('main.guest_book'))
+    
