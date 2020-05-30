@@ -1,4 +1,5 @@
 from flask_wtf import FlaskForm
+from flask_wtf.recaptcha import RecaptchaField
 from wtforms import StringField, SubmitField, PasswordField
 from wtforms.validators import DataRequired, ValidationError, Email
 from flask_pagedown.fields import PageDownField
@@ -8,6 +9,7 @@ from boatparty.models import GuestBookPost
 class GuestBookForm(FlaskForm):
     name = StringField('Your Name', validators=[DataRequired()])
     pagedown = PageDownField('Please leave us a note!\n Markdown supported!')
+    recaptcha = RecaptchaField()
     submit = SubmitField('Good to Go!')
 
     def validate_name(self, name):

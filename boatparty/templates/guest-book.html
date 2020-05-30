@@ -8,6 +8,7 @@
 </div>
 <form method="POST" action="{{ url_for('main.guest_book')}}">
     {{ form.hidden_tag() }}
+    {{ form.csrf_token }}
     <fieldset class="form-group">
         <div class="form-group">
             {{ form.name.label(class="form-control-label") }}
@@ -24,6 +25,12 @@
             <div class="form-group">
                 {{ form.pagedown.label(class="form-control-label") }}
                 {{ form.pagedown(class="form-control form-control-md") }}
+                <div class="mt-1">
+                    {% for error in form.recaptcha.errors %}
+                    {{ error }}
+                    {% endfor %}
+                    {{ form.recaptcha }}
+                </div>
             </div>
     </fieldset>
     <div class="form-group">
