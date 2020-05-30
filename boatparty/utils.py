@@ -32,10 +32,12 @@ def send_email_notification(name, message, notification_type):
 def get_countdown_data():
     """Creates dict of current and wedding datetimes to pass to template"""
     now = datetime.utcnow()
-    wedding_day = datetime(2020, 8, 1, 16, 0, 0)
+    original_wedding_day = datetime(2020, 8, 1, 16, 0, 0)
+    new_wedding_day = datetime(2021, 8, 28, 16, 0, 0)
     return {
         'now': now,
-        'wedding_day': wedding_day
+        'original_wedding_day': original_wedding_day,
+        'new_wedding_day': new_wedding_day
     }
 
 
