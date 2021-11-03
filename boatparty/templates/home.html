@@ -53,9 +53,15 @@
                         {{ moment(original_wedding_day).fromTime(now) }}!</del>
                 </h4>
                 {% endif %}
+                {% if now > new_wedding_day %}
+                <h4 class="text-white font-weight-bold home-tag">Celebrated their marriage
+                    {{ moment(new_wedding_day).fromTime(now) }}!
+                </h4>
+                {% else %}
                 <h4 class="text-white font-weight-bold home-tag">Are getting married
                     {{ moment(new_wedding_day).fromTime(now) }}!
                 </h4>
+                {% endif %}
             </div>
         </div>
     </div>
